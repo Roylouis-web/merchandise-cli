@@ -1,0 +1,144 @@
+### Users
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{ 
+     "name": "LeRoy", 
+     "email": "Powellleroy488@gmail.com", 
+     "password": "Powellleroy18"
+}
+
+### PurchaseId: 42e32ea9-2aaa-4f7d-b02b-6a3c166fbe87
+### ProductId: 62290fb6-4302-4a7f-b5b4-035daa38b281
+### UserId: 926cce19-8b2b-4f89-9a4e-92a2f2e40a1d
+### ReviewId: d4cc49e3-d03d-4f8e-ab8a-73c24c4477a7
+### CartId: 55e75adb-3e57-4bb8-b397-7a95061bbfc3
+### HostId: edc006ac-4a73-4d95-9581-599835d65631
+### User Token: a9ab8389-3ac6-45e0-8def-aab8a6717bc5
+### Host Token: 228a74ee-345d-4d48-9639-b3e383fd1b0e
+
+### Auth
+POST http://localhost:3000/login
+Authorization: Basic UG93ZWxsbGVyb3k0ODhAZ21haWwuY29tOlBvd2VsbGxlcm95MTg=
+Content-Type: application/json
+
+{
+     "role": "user"
+}
+###
+curl -XGET http://localhost:3000/users\
+     -H "X-Token: 467cbd87-1776-4b9f-926d-fac3388c32cb"
+###
+curl -XGET http://localhost:3000/users/926cce19-8b2b-4f89-9a4e-92a2f2e40a1d\
+     -H "X-Token: a9ab8389-3ac6-45e0-8def-aab8a6717bc5"
+###
+curl -XPUT http://localhost:3000/users/f293bdd5-53cd-4e1e-aab0-d5c6e6fd0af2\
+     -H "X-Token: 467cbd87-1776-4b9f-926d-fac3388c32cb"\
+     -H "Content-Type: application/json"\
+     -d '{ "name": "Joshua", "email": "Powellleroy488@gmail.com" }'
+###
+curl -XDELETE http://localhost:3000/users/d386bf27-c598-4d72-96ea-6a5e48e5c75f\
+     -H "X-Token: 3b5dc266-dc18-4142-a533-149da4493414"
+
+### 3b5dc266-dc18-4142-a533-149da4493414
+
+### Hosts
+POST http://localhost:3000/hosts
+Content-Type: application/json
+
+{
+    "name": "LeRoy",
+    "email": "Powellleroy488@gmail.com",
+    "password": "Powellleroy18"
+}
+
+###
+
+POST http://localhost:3000/login
+Authorization: Basic UG93ZWxsbGVyb3k0ODhAZ21haWwuY29tOlBvd2VsbGxlcm95MTg=
+Content-Type: application/json
+
+{
+    "role": "host"
+}
+
+####
+curl -XGET http://localhost:3000/hosts\
+     -H "X-Token: 8f526b9c-e51a-4782-864b-ec984782679c"
+###
+curl -XGET http://localhost:3000/hosts/edc006ac-4a73-4d95-9581-599835d65631\
+     -H "X-Token: 228a74ee-345d-4d48-9639-b3e383fd1b0e"
+###
+curl -XPUT http://localhost:3000/hosts/\
+     -H "X-Token: 116d918d-2b56-4c54-937c-6b1a0bdc8943"\
+     -H "Content-Type: application/json"\
+     -d '{ "name": "James", "email": "Powellleroy488@gmail.com", "password": "Powellleroy18" }'
+###
+curl -XDELETE http://localhost:3000/users/86a3fd3a-efbe-42e7-8bb4-835a60973d14\
+     -H "X-Token: 134a78ed-e592-402e-8510-6af9ddf25ccd"
+#### ['Phones and Tablets', 'Electronics', 'Computing', 'Grocery', 'Go back', 'Log Out'],
+
+### Products
+curl -XPOST http://localhost:3000/products\
+     -H "X-Token: 8f526b9c-e51a-4782-864b-ec984782679c"
+     -H "Content-Type: application/json"
+     -d '{ "name": "Maggi Star Cubes", "price": 300.999, "description": "Your meal will start to taste even better with the addition of Maggi Star Cubes to your meal. You will not regret the decision to give it a try ", "initialStock": 100, "stockAvailable": 100, "category": "Grocery" }'
+###
+curl -XGET http://localhost:3000/products/bf383798-44fd-4adf-8ea7-0edb54369218\
+     -H "X-Token: 467cbd87-1776-4b9f-926d-fac3388c32cb"
+###
+curl -XGET http://localhost:3000/products?offset=0&limit=10&category=Electronics\
+     -H "X-Token: e362773d-c522-45c9-8333-863e6f9c9eec"
+###
+curl -XPUT http://localhost:3000/products/5d6399fe-f556-4c2c-945e-08ae562d25b8\
+     -H "X-Token: ccc14cd0-55d4-4afb-ab53-8e7b964bd5f5"
+     -H "Content-Type: application/json"
+     -d '{ "name": "Gold Skin", "price": 25.89, "description": "An awesome product" }'
+
+###
+curl -XDELETE http://localhost:3000/products/132fe384-2c91-4e40-a1b2-ba0500058989\
+     -H "X-Token: 228a74ee-345d-4d48-9639-b3e383fd1b0e"
+
+### Carts
+curl -XPOST http://localhost:3000/carts\
+     -H "X-Token: 4a04f2a3-e678-49ba-8245-7875103cb0a6"\
+     -H "Content-Type: application/json"\
+     -d '{ "itemCount": 5, "ProductId": "0ac2c872-f7cb-4994-b89e-fb5145204816" }'
+###
+curl -XPUT http://localhost:3000/carts/0fcaf462-3e6e-475e-b8f8-a6bb1d6414e6\
+     -H "X-Token: 4a04f2a3-e678-49ba-8245-7875103cb0a6"
+     -H "Content-Type: application/json"
+     -d '{ "itemCount": 8, "ProductId": "0ac2c872-f7cb-4994-b89e-fb5145204816" }'
+###
+curl -XDELETE http://localhost:3000/carts/0fcaf462-3e6e-475e-b8f8-a6bb1d6414e6\
+     -H "X-Token: 4a04f2a3-e678-49ba-8245-7875103cb0a6"
+
+### Reviews
+curl -XPOST http://localhost:3000/reviews\
+     -H "X-Token: 4a04f2a3-e678-49ba-8245-7875103cb0a6"
+     -H "Content-Type: application/json"
+     -d '{ "review": "The best product I have ever tried", "ProductId": "0ac2c872-f7cb-4994-b89e-fb5145204816" }'
+###
+curl -XPUT http://localhost:3000/reviews/d4cc49e3-d03d-4f8e-ab8a-73c24c4477a7\
+     -H "X-Token: b9330c10-9980-4d9c-9c9a-d5295055b3a1"
+     -H "Content-Type: application/json"
+     -d '{ "newReview": "The worst product I have ever tried" }'
+###
+curl -XDELETE http://localhost:3000/reviews/e4fafda2-aa7d-466d-955b-a452c1619379\
+     -H "X-Token: b9330c10-9980-4d9c-9c9a-d5295055b3a1"
+
+### Auth
+curl -XDELETE http://localhost:3000/logout\
+     -H "X-Token: c3adf70c-3e0d-4f45-a268-9e813e5c4d1d"
+###
+curl -XPUT http://localhost:3000/reset_password/7a1549b7-1a3d-49b5-91f9-df28262ab4eb\
+     -H "X-Token: b9330c10-9980-4d9c-9c9a-d5295055b3a1"
+     -H "Content-Type: application/json"
+     -d '{ newPassword: Powellleroy@17, "role": "user" }'
+
+### Purchase
+curl -XPOST http://localhost:3000/purchases\
+     -H "X-Token: 99d8e02d-2395-40b3-b239-68fc878c1560"\
+     -H "Content-Type: application/json"\
+     -d '{ "ProductId": "2b075c59-76bd-4ef2-a937-620c6c85bf48", "quantity": 6 }'
+###

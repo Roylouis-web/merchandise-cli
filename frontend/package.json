@@ -1,0 +1,33 @@
+{
+  "name": "merchandise-cli-frontend",
+  "version": "1.0.0",
+  "description": "Contains frontend logic for the app",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "start-app": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Roylouis-web/merchandise-cli.git"
+  },
+  "keywords": [
+    "frontend",
+    "cli",
+    "api"
+  ],
+  "author": "Le Roy Powell-Louis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Roylouis-web/merchandise-cli/issues"
+  },
+  "homepage": "https://github.com/Roylouis-web/merchandise-cli#readme",
+  "dependencies": {
+    "@types/node": "^20.6.0",
+    "chalk": "^4.1.2",
+    "cli-spinner": "^0.2.10",
+    "enquirer": "^2.4.1",
+    "figlet": "^1.6.0",
+    "typescript": "^5.2.2"
+  }
+}
