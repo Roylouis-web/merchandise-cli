@@ -396,8 +396,6 @@ class MerchandiseCli {
             'Content-Type': 'application/json',
           },
         });
-
-        data = await response.json();
         break;
       case 'host':
         response = await fetch(`http://localhost:3000/hosts/${currentClient.client.id}`, {
@@ -417,7 +415,7 @@ class MerchandiseCli {
     }
 
     console.log(chalk.red('Your account details has been successfully deleted 💔'));
-    return await MerchandiseCli.logIn();
+    return await MerchandiseCli.authenticate();
   }
 
 
